@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">budgetPlanner</string>
+    <string name="mainLoginButton">Login</string>
+    <string name="mainBudgetPlannerDisplay">Budget Planner</string>
+    <string name="mainLoginHint">LOGIN</string>
+    <string name="mainBudgetPlannerDisplayHint">Budget Planner</string>
+    <string name="mainSignUpHint">Don\'t have an account? Sign Up!</string>
+    <string name="mainPasswordHint">Password</string>
+    <string name="mainUsernameHint">Username</string>
+    <string name="mainSignUpText">Sign Up Today! Creating a Budget has never been easier!</string>
+    <string name="mainSignUpUsername">Username</string>
+    <string name="mainSignUpPassword">Password</string>
+    <string name="mainSignUpButtons">Sign Up</string>
+    <string name="add_expense">Add Expense</string>
+    <string name="start_date">Start Date:</string>
+    <string name="start_date_input">MM/DD/YYYY</string>
+    <string name="end_date">End Date:</string>
+    <string name="end_date_input">MM/DD/YYYY</string>
+    <string name="date_range">Filter</string>
+    <string name="filter_by_date_range">Filter by date range:</string>
+    <string name="expenses_list">Expenses List:</string>
+</resources>
