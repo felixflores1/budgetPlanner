@@ -7,105 +7,179 @@
 
     <!-- Date range filter section -->
 
-    <Button
-        android:id="@+id/add_expense_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/add_expense"
-        app:layout_constraintBottom_toTopOf="@+id/date_range_filter_label"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.664" />
-
     <!-- Expense list section -->
 
-    <TextView
-        android:id="@+id/start_date_label"
-        android:layout_width="69dp"
-        android:layout_height="14dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="284dp"
-        android:text="@string/start_date"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
-        android:id="@+id/start_date_input"
-        android:layout_width="141dp"
-        android:layout_height="57dp"
-        android:layout_marginBottom="32dp"
+        android:id="@+id/start_date_input2"
+        android:layout_width="122dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="20dp"
         android:ems="10"
         android:hint="@string/start_date_input"
         android:inputType="date"
         app:layout_constraintBottom_toTopOf="@+id/end_date_input"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.186"
-        app:layout_constraintStart_toEndOf="@+id/start_date_label" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/end_date_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="56dp"
-        android:text="@string/end_date"
+    <Button
+        android:id="@+id/add_expense_button"
+        android:layout_width="145dp"
+        android:layout_height="49dp"
+        android:text="@string/add_expense"
+        app:layout_constraintBottom_toTopOf="@+id/date_range_filter_label"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/start_date_label" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.896" />
+
+    <EditText
+        android:id="@+id/start_date_input"
+        android:layout_width="141dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="24dp"
+        android:ems="10"
+        android:hint="@string/start_date_input"
+        android:inputType="date"
+        app:layout_constraintEnd_toStartOf="@+id/end_date_input"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
     <EditText
         android:id="@+id/end_date_input"
-        android:layout_width="143dp"
-        android:layout_height="52dp"
-        android:layout_marginBottom="32dp"
+        android:layout_width="139dp"
+        android:layout_height="53dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="@string/end_date_input"
         android:inputType="date"
         app:layout_constraintBottom_toTopOf="@+id/date_range_filter_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.157"
-        app:layout_constraintStart_toEndOf="@+id/end_date_label" />
+        app:layout_constraintTop_toTopOf="@+id/date_range_filter_label"
+        app:layout_constraintVertical_bias="0.87" />
 
     <Button
         android:id="@+id/date_range_filter_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="56dp"
+        android:layout_width="91dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="12dp"
         android:text="@string/date_range"
-        app:layout_constraintBottom_toTopOf="@+id/expenses_list_label"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/start_date_input" />
 
     <TextView
         android:id="@+id/date_range_filter_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/filter_by_date_range"
         app:layout_constraintBottom_toTopOf="@+id/start_date_input"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/expenses_list_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/expenses_list"
-        app:layout_constraintBottom_toTopOf="@+id/expenses_list"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date_range_filter_button" />
 
     <ListView
         android:id="@+id/expenses_list"
-        android:layout_width="228dp"
-        android:layout_height="267dp"
+        android:layout_width="328dp"
+        android:layout_height="225dp"
+        android:layout_marginBottom="152dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/expenses_list_label" />
+
+    <EditText
+        android:id="@+id/editTextNumberDecimal"
+        android:layout_width="123dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/amount"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/add_expense_button"
+        app:layout_constraintEnd_toStartOf="@+id/start_date_input2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.888" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="130dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="56dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/expense_type"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/editTextNumberDecimal"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="-16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:text="@string/manage_budget"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="249dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,4 +19,16 @@
     <string name="date_range">Filter</string>
     <string name="filter_by_date_range">Filter by date range:</string>
     <string name="expenses_list">Expenses List:</string>
+    <string name="expense_type">Expense Type</string>
+    <string name="manage_budget">Manage Budget</string>
+    <string name="amount">Amount</string>
+    <string name="budget_category_prompt" />
+    <string name="budget_progress">Budget progress</string>
+    <string name="budget_category">Budget category</string>
+    <string name="_0_00">0.00</string>
+    <string name="budget_status">Budget status</string>
+    <string name="not_started">Not started</string>
+    <string name="add_expense1">Add expense</string>
+    <string name="start_budget">Start budget</string>
+    <string name="budget_amount">Budget amount</string>
 </resources>

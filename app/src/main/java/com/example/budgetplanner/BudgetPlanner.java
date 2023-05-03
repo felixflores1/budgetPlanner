@@ -4,7 +4,9 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "budget_table")
+import com.example.budgetplanner.DB.AppDataBase;
+
+@Entity(tableName = AppDataBase.BUDGET_TABLE)
 public class BudgetPlanner {
 
     @PrimaryKey(autoGenerate = true)
