@@ -18,55 +18,54 @@ import com.example.budgetplanner.DB.AppDataBase;
 import com.example.budgetplanner.DB.BudgetPlannerDAO;
 import com.example.budgetplanner.databinding.ActivityMainBinding;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
-    ActivityMainBinding binding;
 
-    BudgetPlannerDAO mBudgetPlannerDAO;
-
-    Button mLoginButton;
-
-    Button mSignUpButton;
-
-    EditText mUsernameEditText;
-
-    EditText mPasswordEditText;
+    private BudgetPlannerDAO mBudgetPlannerDAO;
+    private List<BudgetPlanner> mPredefinedUsers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        setContentView(R.layout.activity_main);
 
-        mSignUpButton= findViewById(R.id.signup_button);
-        mLoginButton = binding.mainLoginButton;
-        mUsernameEditText = binding.mainUsernameEditText;
-        mPasswordEditText = binding.mainPasswordEditText;
-
-        mBudgetPlannerDAO = Room.databaseBuilder(this, AppDataBase.class, AppDataBase.DATABASE_NAME)
+        mBudgetPlannerDAO = Room.databaseBuilder(getApplicationContext(),
+                        AppDataBase.class, "budgetplanner_db")
                 .build()
                 .budgetPlannerDao();
 
-        mSignUpButton.setOnClickListener(v -> {
-            Log.d("SignUpActivity", "Sign up button clicked");
-            Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
-            startActivity(intent);
-        });
+        mPredefinedUsers = new ArrayList<>();
+        mPredefinedUsers.add(new BudgetPlanner("Admin1", "Admin1"));
+        mPredefinedUsers.add(new BudgetPlanner("testuser1", "testuser1"));
 
-        mLoginButton.setOnClickListener(v -> {
-            String username = mUsernameEditText.getText().toString();
-            String password = mPasswordEditText.getText().toString();
-            new LoginTask(MainActivity.this, mBudgetPlannerDAO).execute(username, password);
-        });
+        // ...
 
+        Button loginButton = findViewById(R.id.mainLoginButton);
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText usernameEditText = findViewById(R.id.mainUsernameEditText);
+                EditText passwordEditText = findViewById(R.id.mainPasswordEditText);
+
+                String username = usernameEditText.getText().toString();
+                String password = passwordEditText.getText().toString();
+
+                new LoginTask(MainActivity.this, mBudgetPlannerDAO, mPredefinedUsers).execute(username, password);
+            }
+        });
     }
 
     private static class LoginTask extends AsyncTask<String, Void, Boolean> {
         private BudgetPlannerDAO mBudgetPlannerDAO;
         private MainActivity mActivity;
+        private List<BudgetPlanner> mPredefinedUsers;
 
-        public LoginTask(MainActivity activity, BudgetPlannerDAO dao) {
+        public LoginTask(MainActivity activity, BudgetPlannerDAO dao, List<BudgetPlanner> predefinedUsers) {
             mActivity = activity;
             mBudgetPlannerDAO = dao;
+            mPredefinedUsers = predefinedUsers;
         }
 
         @Override
@@ -74,7 +73,16 @@ public class MainActivity extends AppCompatActivity {
             String username = strings[0];
             String password = strings[1];
 
+            // Check if the user is one of the predefined users
+            for (BudgetPlanner user : mPredefinedUsers) {
+                if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+                    return true;
+                }
+            }
+
+            // If not, check the database for a matching user
             BudgetPlanner budget = mBudgetPlannerDAO.getUser(username, password);
+            Log.d("LoginTask", "getUser() returned " + budget);
 
             if (budget != null) {
                 // Save the budget ID in SharedPreferences
@@ -99,10 +107,4 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
-
-
-
 }
-
-

@@ -11,12 +11,14 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.example.budgetplanner.BudgetPlanner;
 import com.example.budgetplanner.DB.BudgetPlannerDAO;
 import com.example.budgetplanner.DB.Converters;
+import com.example.budgetplanner.DashboardActivity;
 import com.example.budgetplanner.Expense;
+import com.example.budgetplanner.MainActivity;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {BudgetPlanner.class, Expense.class}, version = 2)
+@Database(entities = {BudgetPlanner.class, Expense.class}, version = 3)
 @TypeConverters({Converters.class})
 public abstract class AppDataBase extends RoomDatabase {
 
@@ -39,6 +41,7 @@ public abstract class AppDataBase extends RoomDatabase {
                     instance = Room.databaseBuilder(context.getApplicationContext(),
                                     AppDataBase.class, DATABASE_NAME)
                             .addCallback(roomCallback)
+                            .fallbackToDestructiveMigration()
                             .build();
                 }
             }
@@ -51,6 +54,9 @@ public abstract class AppDataBase extends RoomDatabase {
         public void onCreate(SupportSQLiteDatabase db) {
             super.onCreate(db);
             databaseWriteExecutor.execute(() -> {
+                BudgetPlannerDAO dao = instance.budgetPlannerDao();
+                dao.insert(new BudgetPlanner("Admin1", "Admin1"));
+                dao.insert(new BudgetPlanner("testuser1", "testuser1"));
             });
         }
     };

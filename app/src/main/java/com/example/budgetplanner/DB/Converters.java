@@ -22,7 +22,9 @@ public class Converters {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 String category = jsonObject.getString("category");
                 double amount = jsonObject.getDouble("amount");
-                expenses.add(new Expense(expenses.size()+1, category, amount));
+                String date = jsonObject.getString("date");
+                String description = jsonObject.getString("description");
+                expenses.add(new Expense(expenses.size()+1, category, amount, date, description));
             }
         } catch (JSONException e) {
             e.printStackTrace();
